@@ -12,16 +12,14 @@ manager.setup(app)
 
 registry = {}
 
-app.config['COUCHDB_SERVER'] = os.environ.get('COUCHDB_SERVER', 'http://localhost:5984/')
+app.config['COUCHDB_SERVER'] = os.environ.get('COUCHDB_SERVER', 'http://couchdb:5984/')
 app.config['COUCHDB_DATABASE'] = os.environ.get('COUCHDB_DATABASE', 'survey-registry')
 
 
 class SurveyRegistry(Resource):
 
     def get(self, questionnaire_id):
-        print questionnaire_id
         document = g.couch.get(questionnaire_id)
-        print document
         if document:
             return document['content']
         else:
