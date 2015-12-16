@@ -10,4 +10,7 @@
 
 
 ## Running the Survey Registry
-1. python survey_registry.py
+1. Either:
+    Set an environment variable for couchdb: COUCHDB_SERVER=http://localhost:5984
+    Add an entry in /etc/hosts for couchdh: 127.0.0.1 couchdb
+2. python survey_registry.py
